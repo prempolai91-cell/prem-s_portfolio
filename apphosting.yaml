@@ -11,9 +11,3 @@ runConfig:
   # Increase this value if you'd like to automatically spin up
   # more instances in response to increased traffic.
   maxInstances: 1
-
-# The following rewrite is for Next.js 13+ with App Router.
-# It ensures that all requests are handled by the Next.js server.
-rewrites:
-  - source: "**"
-    destination: "/index.html"
