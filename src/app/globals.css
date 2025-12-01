@@ -1,0 +1,95 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes animated-gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: transparent;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 221 83% 53%; /* Blue */
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 262 83% 58%; /* Purple */
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 221 83% 53%; /* Blue */
+  }
+
+  .dark {
+    --background: 240 10% 2%; /* Dark Black */
+    --foreground: 0 0% 98%;
+    --card: 240 10% 5%; /* Darker Card */
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 2%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 217 91% 60%; /* Lighter Blue */
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 12%; /* Darker Secondary */
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 12%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 262 72% 67%; /* Lighter Purple for accent */
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 12%;
+    --input: 240 3.7% 12%;
+    --ring: 217 91% 60%; /* Lighter Blue */
+    --chart-1: 221 90% 50%;
+    --chart-2: 221 90% 60%;
+    --chart-3: 221 90% 70%;
+    --chart-4: 221 90% 80%;
+    --chart-5: 221 90% 90%;
+  }
+}
+
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+    .bg-gradient-primary {
+        @apply bg-gradient-to-r from-primary to-accent;
+    }
+    .text-gradient-primary {
+        @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+    }
+}
+
+html {
+    background-color: hsl(var(--background));
+}

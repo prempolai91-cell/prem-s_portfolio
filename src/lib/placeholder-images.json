@@ -1,0 +1,52 @@
+{
+  "placeholderImages": [
+    {
+      "id": "profile-photo",
+      "description": "A portrait of a person.",
+      "imageUrl": "https://images.unsplash.com/photo-1579913953523-28994c8de4a9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxtYWxlJTIwcG9ydHJhaXQlMjBzbWlsaW5nfGVufDB8fHx8MTc2NDA5Mzg5N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "male portrait"
+    },
+    {
+      "id": "education-placeholder",
+      "description": "A modern university building.",
+      "imageUrl": "https://images.unsplash.com/photo-1599781845952-3213a48e6c46?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjb2xsZWdlJTIwYnVpbGRpbmd8ZW58MHx8fHwxNzY0NTg3MjUxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "college building"
+    },
+    {
+      "id": "project-kismat-ai",
+      "description": "Abstract representation of an AI model.",
+      "imageUrl": "https://images.unsplash.com/photo-1518314916381-77a37c2a49ae?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGFpfGVufDB8fHx8fDE3NjM5Mzc0MDN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "abstract ai"
+    },
+    {
+      "id": "project-1",
+      "description": "Abstract representation of a web application.",
+      "imageUrl": "https://images.unsplash.com/photo-1650473395434-8674d953ef2f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxhYnN0cmFjdCUyMHRlY2h8ZW58MHx8fHwxNzYzNjkzNTI1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "abstract tech"
+    },
+    {
+      "id": "project-2",
+      "description": "Abstract representation of data analysis.",
+      "imageUrl": "https://images.unsplash.com/photo-1486551937199-baf066858de7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxhYnN0cmFjdCUyMGRhdGF8ZW58MHx8fHwxNzYzNjYwODM0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "abstract data"
+    },
+    {
+      "id": "project-3",
+      "description": "Abstract representation of a mobile app.",
+      "imageUrl": "https://images.unsplash.com/photo-1627704266280-af0c33c59e72?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxhYnN0cmFjdCUyMG1vYmlsZXxlbnwwfHx8fDE3NjM2NDk0MzN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "abstract mobile"
+    },
+    {
+      "id": "skills-ai",
+      "description": "Abstract representation of creative technology and AI.",
+      "imageUrl": "https://images.unsplash.com/photo-1640622841908-3a691b7b7ac9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxjcmVhdGl2ZSUyMHRlY2hub2xvZ3l8ZW58MHx8fHwxNzY0MDkzNTI3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "creative technology"
+    },
+    {
+      "id": "certificate-google",
+      "description": "A Google Data Analytics certificate.",
+      "imageUrl": "https://images.unsplash.com/photo-1614332287897-f27a1b3977b2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjZXJ0aWZpY2F0ZXxlbnwwfHx8fDE3NjQ1ODc1NDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "certificate"
+    }
+  ]
+}

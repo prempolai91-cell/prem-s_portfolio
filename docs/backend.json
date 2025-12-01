@@ -1,0 +1,114 @@
+
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "type": "object",
+      "description": "Represents the profile of the user.",
+      "properties": {
+        "id": { "type": "string", "description": "Unique identifier for the UserProfile entity." },
+        "name": { "type": "string", "description": "The display name of the user." },
+        "title": { "type": "string", "description": "The user's professional title." },
+        "aboutMe": { "type": "string", "description": "A detailed section about the user." },
+        "bio": { "type": "string", "description": "A brief biography of the user, used for education." },
+        "fullName": { "type": "string", "description": "The full name of the user." },
+        "profilePhotoUrl": { "type": "string", "description": "URL of the user's profile photo.", "format": "uri" },
+        "educationPhotoUrl": { "type": "string", "description": "URL of the user's education photo.", "format": "uri" },
+        "contactEmail": { "type": "string", "description": "The user's contact email address.", "format": "email" }
+      },
+      "required": ["id", "fullName", "bio", "profilePhotoUrl", "contactEmail", "aboutMe"]
+    },
+    "Skill": {
+      "title": "Skill",
+      "type": "object",
+      "description": "Represents a skill of the user.",
+      "properties": {
+        "id": { "type": "string", "description": "Unique identifier for the Skill entity." },
+        "userProfileId": { "type": "string", "description": "Reference to UserProfile." },
+        "name": { "type": "string", "description": "The name of the skill." },
+        "percentage": { "type": "number", "description": "The user's proficiency percentage in the skill." }
+      },
+      "required": ["userProfileId", "name", "percentage"]
+    },
+    "Technology": {
+      "title": "Technology",
+      "type": "object",
+      "description": "Represents a technology the user is proficient in.",
+      "properties": {
+        "id": { "type": "string", "description": "Unique identifier for the Technology entity." },
+        "userProfileId": { "type": "string", "description": "Reference to UserProfile." },
+        "name": { "type": "string", "description": "The name of the technology." }
+      },
+      "required": ["userProfileId", "name"]
+    },
+    "Project": {
+      "title": "Project",
+      "type": "object",
+      "description": "Represents a project in the user's portfolio.",
+      "properties": {
+        "id": { "type": "string", "description": "Unique identifier for the Project entity." },
+        "userProfileId": { "type": "string", "description": "Reference to UserProfile." },
+        "title": { "type": "string", "description": "The title of the project." },
+        "description": { "type": "string", "description": "A description of the project." },
+        "link": { "type": "string", "description": "Link to the project.", "format": "uri" }
+      },
+      "required": ["userProfileId", "title", "description"]
+    },
+    "Certificate": {
+      "title": "Certificate",
+      "type": "object",
+      "description": "Represents a certificate earned by the user.",
+      "properties": {
+        "id": { "type": "string", "description": "Unique identifier for the Certificate entity." },
+        "userProfileId": { "type": "string", "description": "Reference to UserProfile." },
+        "title": { "type": "string", "description": "The title of the certificate." },
+        "issuer": { "type": "string", "description": "The organization that issued the certificate." },
+        "date": { "type": "string", "description": "The date the certificate was issued.", "format": "date" },
+        "link": { "type": "string", "description": "A link to the certificate or its credential.", "format": "uri" }
+      },
+      "required": ["userProfileId", "title", "issuer", "date"]
+    },
+    "ContactMessage": {
+      "title": "ContactMessage",
+      "type": "object",
+      "description": "Represents a contact message.",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "message": { "type": "string" },
+        "sentAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["name", "email", "message", "sentAt"]
+    }
+  },
+  "auth": {
+    "providers": ["password", "anonymous"]
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/UserProfile" },
+      "description": "Stores user profiles. Only the authenticated user can read/write their own profile."
+    },
+    "/users/{userId}/skills/{skillId}": {
+      "schema": { "$ref": "#/entities/Skill" },
+      "description": "Stores skills for a user. Only the user can manage their own skills."
+    },
+     "/users/{userId}/technologies/{technologyId}": {
+      "schema": { "$ref": "#/entities/Technology" },
+      "description": "Stores technologies for a user. Only the user can manage their own technologies."
+    },
+    "/users/{userId}/projects/{projectId}": {
+      "schema": { "$ref": "#/entities/Project" },
+      "description": "Stores projects for a user. Publicly readable, but only writable by the owner."
+    },
+    "/users/{userId}/certificates/{certificateId}": {
+      "schema": { "$ref": "#/entities/Certificate" },
+      "description": "Stores certificates for a user. Publicly readable, but only writable by the owner."
+    },
+    "/contactMessages/{contactMessageId}": {
+      "schema": { "$ref": "#/entities/ContactMessage" },
+      "description": "Stores contact form submissions. Publicly writable, admin-only readable."
+    }
+  }
+}

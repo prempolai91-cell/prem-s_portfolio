@@ -1,0 +1,64 @@
+
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // The single user ID for the portfolio owner/admin
+    function adminId() {
+      return "GblaJyMUn8es7iUOS3LCNsTzFQP2";
+    }
+
+    // Helper function to check if the current user is the admin
+    function isAdmin() {
+      return request.auth != null && request.auth.uid == adminId();
+    }
+    
+    // Helper function to check if any user is signed in
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    // Rules for user-specific data, accessible only by the admin
+    match /users/{userId} {
+      // Anyone can read the public portfolio profile
+      allow get: if true;
+      
+      // Only the admin can write to the portfolio profile
+      allow write: if isAdmin() && userId == adminId();
+
+      // Subcollections are only writable by the admin for the admin's user document
+      match /skills/{skillId} {
+        allow get, list: if true;
+        allow write: if isAdmin() && userId == adminId();
+      }
+      
+      match /technologies/{technologyId} {
+        allow get, list: if true;
+        allow write: if isAdmin() && userId == adminId();
+      }
+
+      match /projects/{projectId} {
+        allow get, list: if true;
+        allow write: if isAdmin() && userId == adminId();
+      }
+
+      match /certificates/{certificateId} {
+        // Allow public read access to all certificates
+        allow get, list: if true;
+        // Only admin can write
+        allow write: if isAdmin() && userId == adminId();
+      }
+    }
+
+    // Rules for contact messages
+    match /contactMessages/{messageId} {
+      // Anyone can submit a message
+      allow create: if true;
+      // Only the admin can read messages
+      allow read, list: if isAdmin();
+      // Nobody can update or delete messages
+      allow update, delete: if false; 
+    }
+  }
+}
