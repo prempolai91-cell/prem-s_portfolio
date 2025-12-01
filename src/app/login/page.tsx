@@ -140,7 +140,7 @@ export default function LoginPage() {
         </div>
         <CardHeader className="text-center">
             <CardTitle>Admin Login</CardTitle>
-            <CardDescription>Access your portfolio's content management panel.</CardDescription>
+            <CardDescription>Access your portfolio\'s content management panel.</CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleLogin} className="space-y-4">
