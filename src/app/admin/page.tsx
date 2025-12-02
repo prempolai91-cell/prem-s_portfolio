@@ -593,13 +593,11 @@ export default function AdminDashboardPage() {
     let initialProfile = originalProfile;
     if (initialProfile) {
         if (!initialProfile.aboutMe) {
-            initialProfile.aboutMe = `Hello, I am a Graphic Designer and Web Developer dedicated to building digital experiences that are both visually compelling and technically flawless. With a strong foundation in design principles, I specialize in crafting engaging brand identities, intuitive user interfaces (UI/UX), and impactful marketing collateral.
+            initialProfile.aboutMe = `"Hello, I am a Graphic Designer and Web Developer dedicated to building digital experiences that are both visually compelling and technically flawless. Intuitive user interfaces (UI/UX), and impactful marketing collateral.
 
-As a professional, my work sits at the powerful intersection of Graphic Design and Web Development. I believe that the best websites are not only beautiful but also meticulously engineered for the user. My process involves:
-
-- Strategic Design: Creating strong visual narratives, logos, and digital assets that clearly communicate a brand's message.
-- User Experience (UX): Mapping out intuitive user flows and wireframes for maximum usability.
-- Front-End Development: Bringing designs to life with clean, semantic, and responsive code, focusing on performance and accessibility.`;
+- Strategic Design : Creating strong visual narratives, logos, and digital assets that clearly communicate a brand's message.
+- UI/UX Experience : Mapping out intuitive user flows and wireframes for maximum usability.
+- Full-Stack Development : Bringing designs to life with clean, semantic, and responsive code, focusing on performance and accessibility."`;
         }
         if (!initialProfile.bio) {
              initialProfile.bio = `I am Engineering student from The Nalanda Institute Of Technology, Bhubaneswar from 2nd year batch pursing my b-tech course with computer science branch and little bit interesting about design, development, and innovation.`;
@@ -897,3 +895,5 @@ function MessageCard({ message }: { message: ContactMessage }) {
         </Card>
     )
 }
+
+    
