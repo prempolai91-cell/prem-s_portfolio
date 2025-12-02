@@ -39,12 +39,14 @@ export default function HomePage() {
 
   // Effect to handle initial scroll if a hash is present
   useEffect(() => {
-    const hash = window.location.hash.substring(1);
-    if (hash && sections[hash as keyof typeof sections]) {
-      // Use a timeout to ensure the page has had time to layout
-      setTimeout(() => {
-        handleScrollTo(hash);
-      }, 100);
+    if (typeof window !== 'undefined') {
+        const hash = window.location.hash.substring(1);
+        if (hash && sections[hash as keyof typeof sections]) {
+          // Use a timeout to ensure the page has had time to layout
+          setTimeout(() => {
+            handleScrollTo(hash);
+          }, 100);
+        }
     }
   }, []); // Run only once on mount
 

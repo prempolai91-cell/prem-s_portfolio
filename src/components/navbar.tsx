@@ -1,8 +1,8 @@
 
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import { Home, User, Star, Briefcase, Mail, Award, Cpu, Shield } from 'lucide-react';
+import React, { useState, useEffect, useCallback } from 'react';
+import { Home, User, Star, Briefcase, Mail, Award, Cpu, Shield, BookOpen } from 'lucide-react';
 import {
   Tooltip,
   TooltipContent,
@@ -22,6 +22,7 @@ interface NavbarProps {
 const navLinks = [
   { id: 'home', label: 'Home', icon: Home, adminOnly: false },
   { id: 'about', label: 'About', icon: User, adminOnly: false },
+  { id: 'education', label: 'Education', icon: BookOpen, adminOnly: false },
   { id: 'certificates', label: 'Certificates', icon: Award, adminOnly: false },
   { id: 'skills', label: 'Skills', icon: Star, adminOnly: false },
   { id: 'technologies', label: 'Technologies', icon: Cpu, adminOnly: false },
@@ -33,34 +34,31 @@ const adminLink = { id: '/admin', label: 'Admin Panel', icon: Shield, adminOnly:
 
 export function Navbar({ onScroll, onNavigate }: NavbarProps) {
   const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
   const { user, isUserLoading } = useUser();
   const router = useRouter();
 
-  const controlNavbar = () => {
-    if (typeof window !== 'undefined') {
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+
+    const controlNavbar = () => {
       if (window.scrollY < 100) {
         setIsVisible(true);
       } else {
         if (window.scrollY > lastScrollY) {
-          setIsVisible(false);
+          setIsVisible(false); // Scrolling down
         } else {
-          setIsVisible(true);
+          setIsVisible(true); // Scrolling up
         }
       }
-      setLastScrollY(window.scrollY);
-    }
-  };
+      lastScrollY = window.scrollY;
+    };
 
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      window.addEventListener('scroll', controlNavbar);
+    window.addEventListener('scroll', controlNavbar);
 
-      return () => {
-        window.removeEventListener('scroll', controlNavbar);
-      };
-    }
-  }, [lastScrollY]);
+    return () => {
+      window.removeEventListener('scroll', controlNavbar);
+    };
+  }, []);
 
   const finalNavLinks = isUserLoading ? navLinks : (user ? [...navLinks, adminLink] : navLinks);
 
