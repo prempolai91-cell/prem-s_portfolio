@@ -11,7 +11,7 @@ import {
 import { ThemeToggleButton } from './theme-toggle-button';
 import './navbar.css';
 import { useUser } from '@/firebase';
-import { useRouter, usePathname } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 
 interface NavbarProps {
@@ -21,7 +21,7 @@ interface NavbarProps {
 
 const navLinks = [
   { id: 'home', label: 'Home', icon: Home, adminOnly: false },
-  { id: 'about', label: 'About', icon: User, adminOnly: false, path: '/about' },
+  { id: 'about', label: 'About', icon: User, adminOnly: false },
   { id: 'certificates', label: 'Certificates', icon: Award, adminOnly: false },
   { id: 'skills', label: 'Skills', icon: Star, adminOnly: false },
   { id: 'technologies', label: 'Technologies', icon: Cpu, adminOnly: false },
@@ -36,8 +36,6 @@ export function Navbar({ onScroll, onNavigate }: NavbarProps) {
   const [lastScrollY, setLastScrollY] = useState(0);
   const { user, isUserLoading } = useUser();
   const router = useRouter();
-  const pathname = usePathname();
-  const isHomePage = pathname === '/';
 
   const controlNavbar = () => {
     if (typeof window !== 'undefined') {
@@ -75,18 +73,10 @@ export function Navbar({ onScroll, onNavigate }: NavbarProps) {
                     <button
                         onClick={(e) => { 
                             e.preventDefault();
-                            if (link.path) { // For links with a dedicated path
-                                onNavigate(link.path);
-                            } else if (link.adminOnly) { // For the admin link
+                            if (link.adminOnly) {
                                 router.push(link.id);
-                            } else if (isHomePage) { // For scroll links on the home page
+                            } else {
                                 onScroll(link.id);
-                            } else { // For scroll links on other pages
-                                if (link.id === 'home') {
-                                  router.push('/');
-                                } else {
-                                  router.push(`/#${link.id}`);
-                                }
                             }
                         }}
                         className="navbar-icon-button"

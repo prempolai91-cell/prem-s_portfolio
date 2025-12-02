@@ -12,10 +12,12 @@ import { Separator } from '@/components/ui/separator';
 import { TechnologiesSection } from '@/components/technologies-section';
 import { CertificatesSection } from '@/components/certificates-section';
 import { BioSection } from '@/components/bio-section';
+import { AboutMeSection } from '@/components/about-me-section';
 
 export default function HomePage() {
   const sections = {
     home: useRef<HTMLDivElement>(null),
+    about: useRef<HTMLDivElement>(null),
     education: useRef<HTMLDivElement>(null),
     certificates: useRef<HTMLDivElement>(null),
     skills: useRef<HTMLDivElement>(null),
@@ -55,6 +57,11 @@ export default function HomePage() {
         </div>
 
         <div className="space-y-20 md:space-y-32">
+          <div ref={sections.about} id="about">
+            <AboutMeSection />
+          </div>
+
+          <Separator />
            
           <div ref={sections.education} id="education">
             <BioSection />
