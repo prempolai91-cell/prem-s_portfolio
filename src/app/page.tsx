@@ -49,7 +49,7 @@ export default function HomePage() {
   }, []); // Run only once on mount
 
   return (
-    <>
+    <div className="pt-24">
       <Navbar onScroll={handleScrollTo} onNavigate={handleNavigate} />
       <main className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div ref={sections.home} id="home">
@@ -98,6 +98,6 @@ export default function HomePage() {
           </div>
         </div>
       </main>
-    </>
+    </div>
   );
 }
