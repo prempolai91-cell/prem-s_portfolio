@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import { useDoc, useFirestore, useMemoFirebase } from '@/firebase';
 import { doc } from 'firebase/firestore';
@@ -19,11 +20,11 @@ export function ProfilePhoto() {
   const profileImage = profile?.profilePhotoUrl || profilePlaceholder?.imageUrl || "https://picsum.photos/seed/1/256/256";
 
   if (isLoading) {
-    return <Skeleton className="w-64 h-64 md:w-80 md:h-80 rounded-full" />;
+    return <Skeleton className="w-80 h-80 md:w-96 md:h-96 rounded-full" />;
   }
 
   return (
-    <div className="relative w-64 h-64 md:w-80 md:h-80">
+    <div className="relative w-80 h-80 md:w-96 md:h-96">
         <div
             className="absolute -inset-2 bg-gradient-to-br from-blue-300 to-blue-600 rounded-full blur-xl opacity-60 animate-pulse"
             style={{
@@ -37,7 +38,7 @@ export function ProfilePhoto() {
                 alt={profile?.name || 'Profile Photo'}
                 fill
                 priority
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-top"
             />
         </div>
     </div>
