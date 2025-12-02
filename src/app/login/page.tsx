@@ -45,8 +45,10 @@ export default function LoginPage() {
         setError("Please enter both email and password.");
         return;
     }
-    if (email !== ADMIN_EMAIL) {
-        setError("You are not authorized to access this panel.");
+    if (email.toLowerCase() !== ADMIN_EMAIL.toLowerCase()) {
+        const msg = "You are not authorized to access this panel.";
+        setError(msg);
+        toast({ variant: 'destructive', title: "Error", description: msg });
         return;
     }
     
@@ -87,7 +89,7 @@ export default function LoginPage() {
         setError("Please enter your email to reset the password.");
         return;
     }
-     if (email !== ADMIN_EMAIL) {
+     if (email.toLowerCase() !== ADMIN_EMAIL.toLowerCase()) {
         setError("Password reset is only available for the administrator.");
         return;
     }
