@@ -10,19 +10,9 @@ import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { ArrowLeft, Loader2, ShieldCheck } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import { signInWithEmail, resetPassword } from '@/firebase/auth/auth-client';
+import { signInWithEmail, resetPassword, getFriendlyAuthErrorMessage } from '@/firebase/auth/auth-client';
 
 const ADMIN_EMAIL = "prempolai91@gmail.com";
-
-function getFriendlyAuthErrorMessage(error: any): string {
-    if (error && typeof error.code === 'string' && error.code.startsWith('auth/')) {
-        const message = error.message
-          .replace('Firebase: ', '')
-          .replace(/\(auth\/.*\)\.?/, '').trim();
-        return message || 'An unknown authentication error occurred.';
-    }
-    return error?.message || 'An unexpected error occurred.';
-}
 
 export default function LoginPage() {
   const { user, isUserLoading } = useUser();
@@ -73,7 +63,7 @@ export default function LoginPage() {
         })
         .catch((e: any) => {
             const errorMessage = getFriendlyAuthErrorMessage(e);
-            setError( errorMessage);
+            setError(errorMessage);
             toast({
                 variant: "destructive",
                 title: "Login Failed",
