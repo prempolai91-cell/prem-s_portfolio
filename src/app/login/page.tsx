@@ -72,7 +72,7 @@ export default function LoginPage() {
             // The useEffect hook will handle the redirection after auth state changes.
         })
         .catch((e: any) => {
-            const errorMessage = e.message;
+            const errorMessage = getFriendlyAuthErrorMessage(e);
             setError( errorMessage);
             toast({
                 variant: "destructive",
@@ -112,7 +112,7 @@ export default function LoginPage() {
             description: `An email has been sent to ${email} with instructions to reset your password.`
         });
     } catch (e: any) {
-        const errorMessage = e.message;
+        const errorMessage = getFriendlyAuthErrorMessage(e);
         setError(errorMessage);
         toast({
             variant: "destructive",
