@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useState, useEffect, useCallback } from 'react';
@@ -41,16 +40,18 @@ export function Navbar({ onScroll, onNavigate }: NavbarProps) {
     let lastScrollY = window.scrollY;
 
     const controlNavbar = () => {
-      if (window.scrollY < 100) {
-        setIsVisible(true);
-      } else {
-        if (window.scrollY > lastScrollY) {
-          setIsVisible(false); // Scrolling down
+      if (typeof window !== 'undefined') {
+        if (window.scrollY < 100) {
+          setIsVisible(true);
         } else {
-          setIsVisible(true); // Scrolling up
+          if (window.scrollY > lastScrollY) {
+            setIsVisible(false); // Scrolling down
+          } else {
+            setIsVisible(true); // Scrolling up
+          }
         }
+        lastScrollY = window.scrollY;
       }
-      lastScrollY = window.scrollY;
     };
 
     window.addEventListener('scroll', controlNavbar);

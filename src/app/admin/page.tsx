@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useUser, useFirestore, useDoc, useCollection, useMemoFirebase, useAuth } from '@/firebase';
@@ -895,7 +894,3 @@ function MessageCard({ message }: { message: ContactMessage }) {
         </Card>
     )
 }
-
-    
-
-    
