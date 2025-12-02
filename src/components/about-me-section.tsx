@@ -58,7 +58,7 @@ export function AboutMeSection() {
   const userIdToShow = PORTFOLIO_USER_ID;
 
   return (
-    <section id="about" className="animate-in fade-in duration-500">
+    <section id="about" className="animate-in fade-in-0 slide-in-from-top-12 duration-1000">
       <SectionHeading>About Me__</SectionHeading>
       <div className="mt-12">
         {userIdToShow ? (
