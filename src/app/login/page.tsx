@@ -73,7 +73,7 @@ export default function LoginPage() {
         })
         .catch((e: any) => {
             const errorMessage = getFriendlyAuthErrorMessage(e);
-            setError(errorMessage);
+            setError( errorMessage);
             toast({
                 variant: "destructive",
                 title: "Login Failed",
@@ -109,7 +109,7 @@ export default function LoginPage() {
         toast({
             variant: "success",
             title: "Password Reset Email Sent",
-            description: `An email has been sent to ${email} with instructions to reset your password.`,
+            description: `An email has been sent to ${email} with instructions to reset your password.`
         });
     } catch (e: any) {
         const errorMessage = getFriendlyAuthErrorMessage(e);
@@ -140,7 +140,7 @@ export default function LoginPage() {
         </div>
         <CardHeader className="text-center">
             <CardTitle>Admin Login</CardTitle>
-            <CardDescription>Access your portfolio\'s content management panel.</CardDescription>
+            <CardDescription>Access your portfolio's content management panel.</CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleLogin} className="space-y-4">
@@ -156,7 +156,18 @@ export default function LoginPage() {
                 />
             </div>
             <div className="space-y-2">
-                <Label htmlFor="login-password">Password</Label>
+                <div className="flex items-center justify-between">
+                    <Label htmlFor="login-password">Password</Label>
+                    <Button
+                        variant="link"
+                        type="button"
+                        onClick={handlePasswordReset}
+                        disabled={isLoading || !email}
+                        className="px-0 h-auto text-sm"
+                    >
+                        Forgot Password?
+                    </Button>
+                </div>
                 <Input 
                   id="login-password" 
                   type="password" 
