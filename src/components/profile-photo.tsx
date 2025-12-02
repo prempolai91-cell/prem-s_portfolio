@@ -20,11 +20,11 @@ export function ProfilePhoto() {
   const profileImage = profile?.profilePhotoUrl || profilePlaceholder?.imageUrl || "https://picsum.photos/seed/1/256/256";
 
   if (isLoading) {
-    return <Skeleton className="w-80 h-80 md:w-96 md:h-96 rounded-full" />;
+    return <Skeleton className="w-96 h-96 md:w-[400px] md:h-[400px] rounded-full" />;
   }
 
   return (
-    <div className="relative w-80 h-80 md:w-96 md:h-96">
+    <div className="relative w-96 h-96 md:w-[400px] md:h-[400px]">
         <div
             className="absolute -inset-2 bg-gradient-to-br from-blue-300 to-blue-600 rounded-full blur-xl opacity-60 animate-pulse"
             style={{
