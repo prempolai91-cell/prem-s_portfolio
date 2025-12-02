@@ -4,7 +4,6 @@
 import { useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { Header } from '@/components/header';
-import { AboutMeSection } from '@/components/about-me-section';
 import { SkillsSection } from '@/components/skills-section';
 import { ProjectsSection } from '@/components/projects-section';
 import { ContactSection } from '@/components/contact-section';
@@ -17,7 +16,6 @@ import { BioSection } from '@/components/bio-section';
 export default function HomePage() {
   const sections = {
     home: useRef<HTMLDivElement>(null),
-    about: useRef<HTMLDivElement>(null),
     education: useRef<HTMLDivElement>(null),
     certificates: useRef<HTMLDivElement>(null),
     skills: useRef<HTMLDivElement>(null),
@@ -57,12 +55,7 @@ export default function HomePage() {
         </div>
 
         <div className="space-y-20 md:space-y-32">
-           <div ref={sections.about} id="about">
-            <AboutMeSection />
-          </div>
-
-          <Separator />
-          
+           
           <div ref={sections.education} id="education">
             <BioSection />
           </div>
