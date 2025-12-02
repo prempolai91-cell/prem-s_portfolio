@@ -67,7 +67,7 @@ export function Header() {
   const userIdToShow = PORTFOLIO_USER_ID; 
 
   return (
-    <header className="relative flex items-center justify-center pt-12 pb-20 animate-in fade-in duration-500">
+    <header className="relative flex items-center justify-center pt-32 pb-20 animate-in fade-in duration-500">
       {userIdToShow ? (
         <ProfileHeaderContent userId={userIdToShow} />
       ) : (
