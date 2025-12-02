@@ -4,6 +4,7 @@
 import { useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { Header } from '@/components/header';
+import { AboutMeSection } from '@/components/about-me-section';
 import { SkillsSection } from '@/components/skills-section';
 import { ProjectsSection } from '@/components/projects-section';
 import { ContactSection } from '@/components/contact-section';
@@ -12,7 +13,6 @@ import { Separator } from '@/components/ui/separator';
 import { TechnologiesSection } from '@/components/technologies-section';
 import { CertificatesSection } from '@/components/certificates-section';
 import { BioSection } from '@/components/bio-section';
-import { AboutMeSection } from '@/components/about-me-section';
 
 export default function HomePage() {
   const sections = {
@@ -56,7 +56,7 @@ export default function HomePage() {
           <Header />
         </div>
 
-        <div className="space-y-20 md:space-y-32">
+        <div className="space-y-20 md:space-y-32 mt-20 md:mt-32">
           <div ref={sections.about} id="about">
             <AboutMeSection />
           </div>
